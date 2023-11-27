@@ -15,8 +15,8 @@ import { ethers } from "ethers";
 import * as envEnc from "@chainlink/env-enc";
 envEnc.config();
 
-const consumerAddress = "0xb76d5FDE67b2464827f05Fc507987C518D5BbA3F";
-const subscriptionId = 904;
+const consumerAddress = "0xe817c176fa94184729198aa51f46ab7fc89b75d3";
+const subscriptionId = 957;
 const makeRequestMumbai = async () => {
   // hardcoded for Polygon Mumbai
   const routerAddress = "0x6E2dc0F9DB014aE19888F539E59285D2Ea04244C";
@@ -26,7 +26,7 @@ const makeRequestMumbai = async () => {
 
   // Initialize functions settings
   const source = fs
-    .readFileSync(path.resolve(__dirname, "consume.js"))
+    .readFileSync(path.resolve(__dirname, "consume2.js"))
     .toString();
   console.log(source);
   const args = ["ETH", "USD"];
