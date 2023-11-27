@@ -10,7 +10,11 @@
   "license": "ISC",
   "dependencies": {
     "@chainlink/contracts": "^0.8.0",
-    "hardhat": "^2.19.1"
+    "@chainlink/env-enc": "^1.0.5",
+    "@chainlink/functions-toolkit": "^0.2.6",
+    "ethers": "^5.7.2",
+    "hardhat": "^2.19.1",
+    "ts-node": "^10.9.1"
   },
   "devDependencies": {
     "@nomicfoundation/hardhat-toolbox": "^4.0.0"
