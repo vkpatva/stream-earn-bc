@@ -1,32 +1,30 @@
-const fromSymbol = args[0];
-const toSymbol = args[1];
+const songId = args[0];
 
-const url = `https://min-api.cryptocompare.com/data/pricemultifull`;
-console.log(`HTTP GET Request to ${url}?fsyms=${fromSymbol}&tsyms=${toSymbol}`);
-const cryptoCompareRequest = Functions.makeHttpRequest({
+const url = ` https://84b0-203-129-213-98.ngrok.io/song/streams`;
+const songRequest = Functions.makeHttpRequest({
   url: url,
+  method: "POST",
   headers: {
     "Content-Type": "application/json",
   },
-  params: {
-    fsyms: fromSymbol,
-    tsyms: toSymbol,
+  data: {
+    songId: songId,
   },
 });
 
-const cryptoCompareResponse = await cryptoCompareRequest;
-if (cryptoCompareResponse.error) {
-  console.error(cryptoCompareResponse.error);
+const songResponse = await songRequest;
+console.log(songResponse);
+if (songResponse.error) {
+  console.error(songResponse.error);
   throw Error("Request failed");
 }
 
-const data = cryptoCompareResponse["data"];
-if (data.Response === "Error") {
+const data = songResponse["data"];
+if (data.status !== 200) {
   console.error(data.Message);
   throw Error(`Functional error. Read message: ${data.Message}`);
 }
 
-const price = data["RAW"][fromSymbol][toSymbol]["PRICE"];
-console.log(`${fromSymbol} price is: ${price.toFixed(2)} ${toSymbol}`);
-
-return Functions.encodeUint256(Math.round(price * 100));
+return Functions.encodeUint256(
+  data.payload.total_plays - data.payload.last_checked
+);

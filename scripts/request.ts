@@ -15,21 +15,21 @@ import { ethers } from "ethers";
 import * as envEnc from "@chainlink/env-enc";
 envEnc.config();
 
-const consumerAddress = "0xe817c176fa94184729198aa51f46ab7fc89b75d3";
+const consumerAddress = "0x1fa6af0a531eacc149ab5ec9553ff2014fcbe98b";
 const subscriptionId = 957;
 const makeRequestMumbai = async () => {
   // hardcoded for Polygon Mumbai
   const routerAddress = "0x6E2dc0F9DB014aE19888F539E59285D2Ea04244C";
-  const linkTokenAddress = "0x326C977E6efc84E512bB9C30f76E30c160eD06FB";
+  const linkTokenAddress = "0x07d1C32b080991fECd0c59d18fD27E4d3BFe25CB";
   const donId = "fun-polygon-mumbai-1";
   const explorerUrl = "https://mumbai.polygonscan.com";
 
   // Initialize functions settings
   const source = fs
-    .readFileSync(path.resolve(__dirname, "consume2.js"))
+    .readFileSync(path.resolve(__dirname, "consume.js"))
     .toString();
   console.log(source);
-  const args = ["ETH", "USD"];
+  const args = ["c9947381-8cdd-445c-8091-adbbc3e187bf"];
   const gasLimit = 300000;
 
   // Initialize ethers signer and provider to interact with the contracts onchain
@@ -125,7 +125,8 @@ const makeRequestMumbai = async () => {
     [], // bytesArgs - arguments can be encoded off-chain to bytes.
     subscriptionId,
     gasLimit,
-    ethers.utils.formatBytes32String(donId) // jobId is bytes32 representation of donId
+    ethers.utils.formatBytes32String(donId)
+    // jobId is bytes32 representation of donId
   );
 
   // Log transaction details
