@@ -1,7 +1,7 @@
 # stream-earn-bc
 
-Consumer Contract Deployed at : 0xf97D595aEF178686F00e4EE47e1383DeFb9DB5E8
-Stream Token : 0x063EeFb4c4B3fCEd377A738F441C35adA6c8F127
+Consumer Contract Deployed at : 0xbac0c2bb40d17520f1a5bce5c0d0d469b6a791ee
+Stream Token : 0x8c00feb41160b3af6739a348de31ddf3ef9181fb
 ROUTER Contract : 0x6E2dc0F9DB014aE19888F539E59285D2Ea04244C
 
 SET ENV :
