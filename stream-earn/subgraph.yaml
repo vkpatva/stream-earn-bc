@@ -1,0 +1,39 @@
+specVersion: 0.0.5
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: FunctionsConsumer
+    network: mumbai
+    source:
+      address: "0xf97D595aEF178686F00e4EE47e1383DeFb9DB5E8"
+      abi: FunctionsConsumer
+      startBlock: 42964162
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - OwnershipTransferRequested
+        - OwnershipTransferred
+        - RequestFulfilled
+        - RequestSent
+        - Response
+        - mintTokens
+      abis:
+        - name: FunctionsConsumer
+          file: ./abis/FunctionsConsumer.json
+      eventHandlers:
+        - event: OwnershipTransferRequested(indexed address,indexed address)
+          handler: handleOwnershipTransferRequested
+        - event: OwnershipTransferred(indexed address,indexed address)
+          handler: handleOwnershipTransferred
+        - event: RequestFulfilled(indexed bytes32)
+          handler: handleRequestFulfilled
+        - event: RequestSent(indexed bytes32)
+          handler: handleRequestSent
+        - event: Response(indexed bytes32,bytes,bytes)
+          handler: handleResponse
+        - event: mintTokens(indexed bytes32,uint256)
+          handler: handlemintTokens
+      file: ./src/functions-consumer.ts
