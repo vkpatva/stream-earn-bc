@@ -19,17 +19,15 @@ contract StreamEarn is FunctionsClient, ConfirmedOwner {
     error UnexpectedRequestID(bytes32 requestId);
     error NotWhitelisted(address sender);
 
-    event DataResponse(
-        bytes32 indexed requestId,
-        bytes indexed response,
-        bytes err
-    );
-    event mintStreamTokens(
-        address indexed artist,
-        uint256 number,
-        string songId
-    );
-    event RequestSent(bytes32 indexed requestId, string songId);
+    event DataRequestMade(bytes32 indexed requestId, string songId);
+    event DataResponse(bytes32 indexed requestId, bytes response, bytes err);
+
+    event ArtistWhitelisted(address indexed artist);
+    event SongAdded(address artist, string songId);
+
+    event MintStreamTokens(address artist, uint256 tokensMinted, string songId);
+
+    event ArtistRemoved(address indexed artist);
 
     StreamToken public streamToken;
 
@@ -47,10 +45,12 @@ contract StreamEarn is FunctionsClient, ConfirmedOwner {
 
     function addWhitelistedAddress(address _address) external onlyOwner {
         whitelistedAddresses[_address] = true;
+        emit ArtistWhitelisted(_address);
     }
 
     function removeWhitelistedAddress(address _address) external onlyOwner {
         whitelistedAddresses[_address] = false;
+        emit ArtistRemoved(_address);
     }
 
     function addSong(
@@ -59,6 +59,7 @@ contract StreamEarn is FunctionsClient, ConfirmedOwner {
     ) external onlyOwner {
         require(whitelistedAddresses[artistAddress], "Singer not whitelisted");
         songToArtist[songId] = artistAddress;
+        emit SongAdded(artistAddress, songId);
     }
 
     function getPaid(string memory songId) external {
@@ -67,7 +68,7 @@ contract StreamEarn is FunctionsClient, ConfirmedOwner {
         uint256 newPayment = totalPlays[songId] - lastPaid;
         streamToken.mint(msg.sender, newPayment);
         songIdTotalPaid[songId] = totalPlays[songId];
-        emit mintStreamTokens(msg.sender, newPayment, songId);
+        emit MintStreamTokens(msg.sender, newPayment, songId);
     }
 
     function sendRequest(
@@ -100,7 +101,7 @@ contract StreamEarn is FunctionsClient, ConfirmedOwner {
             donID
         );
         requestIdToSongId[s_lastRequestId] = args[0];
-        emit RequestSent(s_lastRequestId, args[0]);
+        emit DataRequestMade(s_lastRequestId, args[0]);
         return s_lastRequestId;
     }
 
