@@ -1,7 +1,8 @@
 # stream-earn-bc
 
-Consumer Contract Deployed at : 0x1FA6af0A531EaCC149Ab5Ec9553fF2014fCbE98B
-Stream Token : 0x29461068d994657B59f18a39e0Ba337321C28aE3
+Consumer Contract Deployed at : 0xf97D595aEF178686F00e4EE47e1383DeFb9DB5E8
+Stream Token : 0x063EeFb4c4B3fCEd377A738F441C35adA6c8F127
+ROUTER Contract : 0x6E2dc0F9DB014aE19888F539E59285D2Ea04244C
 
 SET ENV :
 For higher security, the examples repository encrypts your environment variables at rest.
