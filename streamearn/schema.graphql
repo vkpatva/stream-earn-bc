@@ -33,7 +33,7 @@ type DataResponse @entity(immutable: true) {
   transactionHash: Bytes!
 }
 
-type MintStreamTokens @entity(immutable: true) {
+type MintStreamToken @entity(immutable: true) {
   id: Bytes!
   artist: Bytes! # address
   tokensMinted: BigInt! # uint256

@@ -3,7 +3,7 @@ import {
   ArtistWhitelisted as ArtistWhitelistedEvent,
   DataRequestMade as DataRequestMadeEvent,
   DataResponse as DataResponseEvent,
-  MintStreamTokens as MintStreamTokensEvent,
+  MintStreamToken as MintStreamTokenEvent,
   OwnershipTransferRequested as OwnershipTransferRequestedEvent,
   OwnershipTransferred as OwnershipTransferredEvent,
   RequestFulfilled as RequestFulfilledEvent,
@@ -15,7 +15,7 @@ import {
   ArtistWhitelisted,
   DataRequestMade,
   DataResponse,
-  MintStreamTokens,
+  MintStreamToken,
   OwnershipTransferRequested,
   OwnershipTransferred,
   RequestFulfilled,
@@ -78,8 +78,8 @@ export function handleDataResponse(event: DataResponseEvent): void {
   entity.save()
 }
 
-export function handleMintStreamTokens(event: MintStreamTokensEvent): void {
-  let entity = new MintStreamTokens(
+export function handleMintStreamToken(event: MintStreamTokenEvent): void {
+  let entity = new MintStreamToken(
     event.transaction.hash.concatI32(event.logIndex.toI32())
   )
   entity.artist = event.params.artist

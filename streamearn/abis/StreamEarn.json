@@ -118,7 +118,7 @@
         "type": "string"
       }
     ],
-    "name": "MintStreamTokens",
+    "name": "MintStreamToken",
     "type": "event"
   },
   {

@@ -25,7 +25,7 @@ contract StreamEarn is FunctionsClient, ConfirmedOwner {
     event ArtistWhitelisted(address indexed artist);
     event SongAdded(address artist, string songId);
 
-    event MintStreamTokens(address artist, uint256 tokensMinted, string songId);
+    event MintStreamToken(address artist, uint256 tokensMinted, string songId);
 
     event ArtistRemoved(address indexed artist);
 
@@ -68,7 +68,7 @@ contract StreamEarn is FunctionsClient, ConfirmedOwner {
         uint256 newPayment = totalPlays[songId] - lastPaid;
         streamToken.mint(msg.sender, newPayment);
         songIdTotalPaid[songId] = totalPlays[songId];
-        emit MintStreamTokens(msg.sender, newPayment, songId);
+        emit MintStreamToken(msg.sender, newPayment, songId);
     }
 
     function sendRequest(

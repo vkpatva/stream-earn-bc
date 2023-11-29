@@ -5,7 +5,7 @@ import {
   ArtistWhitelisted,
   DataRequestMade,
   DataResponse,
-  MintStreamTokens,
+  MintStreamToken,
   OwnershipTransferRequested,
   OwnershipTransferred,
   RequestFulfilled,
@@ -85,29 +85,29 @@ export function createDataResponseEvent(
   return dataResponseEvent
 }
 
-export function createMintStreamTokensEvent(
+export function createMintStreamTokenEvent(
   artist: Address,
   tokensMinted: BigInt,
   songId: string
-): MintStreamTokens {
-  let mintStreamTokensEvent = changetype<MintStreamTokens>(newMockEvent())
+): MintStreamToken {
+  let mintStreamTokenEvent = changetype<MintStreamToken>(newMockEvent())
 
-  mintStreamTokensEvent.parameters = new Array()
+  mintStreamTokenEvent.parameters = new Array()
 
-  mintStreamTokensEvent.parameters.push(
+  mintStreamTokenEvent.parameters.push(
     new ethereum.EventParam("artist", ethereum.Value.fromAddress(artist))
   )
-  mintStreamTokensEvent.parameters.push(
+  mintStreamTokenEvent.parameters.push(
     new ethereum.EventParam(
       "tokensMinted",
       ethereum.Value.fromUnsignedBigInt(tokensMinted)
     )
   )
-  mintStreamTokensEvent.parameters.push(
+  mintStreamTokenEvent.parameters.push(
     new ethereum.EventParam("songId", ethereum.Value.fromString(songId))
   )
 
-  return mintStreamTokensEvent
+  return mintStreamTokenEvent
 }
 
 export function createOwnershipTransferRequestedEvent(
