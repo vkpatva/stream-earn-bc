@@ -1,0 +1,51 @@
+specVersion: 0.0.5
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: StreamEarn
+    network: mumbai
+    source:
+      address: "0x8260FaA00165c1F0f9B29F658C0985e279EFc442"
+      abi: StreamEarn
+      startBlock: 42974192
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - ArtistRemoved
+        - ArtistWhitelisted
+        - DataRequestMade
+        - DataResponse
+        - MintStreamTokens
+        - OwnershipTransferRequested
+        - OwnershipTransferred
+        - RequestFulfilled
+        - RequestSent
+        - SongAdded
+      abis:
+        - name: StreamEarn
+          file: ./abis/StreamEarn.json
+      eventHandlers:
+        - event: ArtistRemoved(indexed address)
+          handler: handleArtistRemoved
+        - event: ArtistWhitelisted(indexed address)
+          handler: handleArtistWhitelisted
+        - event: DataRequestMade(indexed bytes32,string)
+          handler: handleDataRequestMade
+        - event: DataResponse(indexed bytes32,bytes,bytes)
+          handler: handleDataResponse
+        - event: MintStreamTokens(address,uint256,string)
+          handler: handleMintStreamTokens
+        - event: OwnershipTransferRequested(indexed address,indexed address)
+          handler: handleOwnershipTransferRequested
+        - event: OwnershipTransferred(indexed address,indexed address)
+          handler: handleOwnershipTransferred
+        - event: RequestFulfilled(indexed bytes32)
+          handler: handleRequestFulfilled
+        - event: RequestSent(indexed bytes32)
+          handler: handleRequestSent
+        - event: SongAdded(address,string)
+          handler: handleSongAdded
+      file: ./src/stream-earn.ts

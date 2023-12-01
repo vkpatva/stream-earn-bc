@@ -1,0 +1,42 @@
+specVersion: 0.0.5
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: StreamEarn
+    network: mumbai
+    source:
+      address: "0xbac0c2bb40d17520F1A5bCE5C0d0D469B6A791ee"
+      abi: StreamEarn
+      startBlock: 42971037
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - DataResponse
+        - OwnershipTransferRequested
+        - OwnershipTransferred
+        - RequestFulfilled
+        - RequestSent
+        - RequestSent1
+        - mintStreamTokens
+      abis:
+        - name: StreamEarn
+          file: ./abis/StreamEarn.json
+      eventHandlers:
+        - event: DataResponse(indexed bytes32,indexed bytes,bytes)
+          handler: handleDataResponse
+        - event: OwnershipTransferRequested(indexed address,indexed address)
+          handler: handleOwnershipTransferRequested
+        - event: OwnershipTransferred(indexed address,indexed address)
+          handler: handleOwnershipTransferred
+        - event: RequestFulfilled(indexed bytes32)
+          handler: handleRequestFulfilled
+        - event: RequestSent(indexed bytes32)
+          handler: handleRequestSent
+        - event: RequestSent(indexed bytes32,string)
+          handler: handleRequestSent1
+        - event: mintStreamTokens(indexed address,uint256,string)
+          handler: handlemintStreamTokens
+      file: ./src/stream-earn.ts

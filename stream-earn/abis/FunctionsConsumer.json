@@ -8,16 +8,8 @@
   },
   {
     "inputs": [
-      {
-        "internalType": "string",
-        "name": "songId",
-        "type": "string"
-      },
-      {
-        "internalType": "address",
-        "name": "artistAddress",
-        "type": "address"
-      }
+      { "internalType": "string", "name": "songId", "type": "string" },
+      { "internalType": "address", "name": "artistAddress", "type": "address" }
     ],
     "name": "addSong",
     "outputs": [],
@@ -26,11 +18,7 @@
   },
   {
     "inputs": [
-      {
-        "internalType": "address",
-        "name": "_address",
-        "type": "address"
-      }
+      { "internalType": "address", "name": "_address", "type": "address" }
     ],
     "name": "addWhitelistedAddress",
     "outputs": [],
@@ -39,11 +27,7 @@
   },
   {
     "inputs": [
-      {
-        "internalType": "address",
-        "name": "newStreamToken",
-        "type": "address"
-      }
+      { "internalType": "address", "name": "newStreamToken", "type": "address" }
     ],
     "name": "changeStreamToken",
     "outputs": [],
@@ -52,11 +36,7 @@
   },
   {
     "inputs": [
-      {
-        "internalType": "string",
-        "name": "songId",
-        "type": "string"
-      }
+      { "internalType": "string", "name": "songId", "type": "string" }
     ],
     "name": "getPaid",
     "outputs": [],
@@ -65,86 +45,38 @@
   },
   {
     "inputs": [
-      {
-        "internalType": "address",
-        "name": "router",
-        "type": "address"
-      },
-      {
-        "internalType": "address",
-        "name": "_streamToken",
-        "type": "address"
-      }
+      { "internalType": "address", "name": "router", "type": "address" },
+      { "internalType": "address", "name": "_streamToken", "type": "address" }
     ],
     "stateMutability": "nonpayable",
     "type": "constructor"
   },
-  {
-    "inputs": [],
-    "name": "EmptyArgs",
-    "type": "error"
-  },
-  {
-    "inputs": [],
-    "name": "EmptySecrets",
-    "type": "error"
-  },
-  {
-    "inputs": [],
-    "name": "EmptySource",
-    "type": "error"
-  },
+  { "inputs": [], "name": "EmptyArgs", "type": "error" },
+  { "inputs": [], "name": "EmptySecrets", "type": "error" },
+  { "inputs": [], "name": "EmptySource", "type": "error" },
   {
     "inputs": [
-      {
-        "internalType": "bytes32",
-        "name": "requestId",
-        "type": "bytes32"
-      },
-      {
-        "internalType": "bytes",
-        "name": "response",
-        "type": "bytes"
-      },
-      {
-        "internalType": "bytes",
-        "name": "err",
-        "type": "bytes"
-      }
+      { "internalType": "bytes32", "name": "requestId", "type": "bytes32" },
+      { "internalType": "bytes", "name": "response", "type": "bytes" },
+      { "internalType": "bytes", "name": "err", "type": "bytes" }
     ],
     "name": "handleOracleFulfillment",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
   },
-  {
-    "inputs": [],
-    "name": "NoInlineSecrets",
-    "type": "error"
-  },
+  { "inputs": [], "name": "NoInlineSecrets", "type": "error" },
   {
     "inputs": [
-      {
-        "internalType": "address",
-        "name": "sender",
-        "type": "address"
-      }
+      { "internalType": "address", "name": "sender", "type": "address" }
     ],
     "name": "NotWhitelisted",
     "type": "error"
   },
-  {
-    "inputs": [],
-    "name": "OnlyRouterCanFulfill",
-    "type": "error"
-  },
+  { "inputs": [], "name": "OnlyRouterCanFulfill", "type": "error" },
   {
     "inputs": [
-      {
-        "internalType": "address",
-        "name": "_address",
-        "type": "address"
-      }
+      { "internalType": "address", "name": "_address", "type": "address" }
     ],
     "name": "removeWhitelistedAddress",
     "outputs": [],
@@ -153,11 +85,7 @@
   },
   {
     "inputs": [
-      {
-        "internalType": "bytes32",
-        "name": "requestId",
-        "type": "bytes32"
-      }
+      { "internalType": "bytes32", "name": "requestId", "type": "bytes32" }
     ],
     "name": "UnexpectedRequestID",
     "type": "error"
@@ -272,11 +200,7 @@
   },
   {
     "inputs": [
-      {
-        "internalType": "string",
-        "name": "source",
-        "type": "string"
-      },
+      { "internalType": "string", "name": "source", "type": "string" },
       {
         "internalType": "bytes",
         "name": "encryptedSecretsUrls",
@@ -292,85 +216,35 @@
         "name": "donHostedSecretsVersion",
         "type": "uint64"
       },
-      {
-        "internalType": "string[]",
-        "name": "args",
-        "type": "string[]"
-      },
-      {
-        "internalType": "bytes[]",
-        "name": "bytesArgs",
-        "type": "bytes[]"
-      },
-      {
-        "internalType": "uint64",
-        "name": "subscriptionId",
-        "type": "uint64"
-      },
-      {
-        "internalType": "uint32",
-        "name": "gasLimit",
-        "type": "uint32"
-      },
-      {
-        "internalType": "bytes32",
-        "name": "donID",
-        "type": "bytes32"
-      }
+      { "internalType": "string[]", "name": "args", "type": "string[]" },
+      { "internalType": "bytes[]", "name": "bytesArgs", "type": "bytes[]" },
+      { "internalType": "uint64", "name": "subscriptionId", "type": "uint64" },
+      { "internalType": "uint32", "name": "gasLimit", "type": "uint32" },
+      { "internalType": "bytes32", "name": "donID", "type": "bytes32" }
     ],
     "name": "sendRequest",
     "outputs": [
-      {
-        "internalType": "bytes32",
-        "name": "requestId",
-        "type": "bytes32"
-      }
+      { "internalType": "bytes32", "name": "requestId", "type": "bytes32" }
     ],
     "stateMutability": "nonpayable",
     "type": "function"
   },
   {
     "inputs": [
-      {
-        "internalType": "bytes",
-        "name": "request",
-        "type": "bytes"
-      },
-      {
-        "internalType": "uint64",
-        "name": "subscriptionId",
-        "type": "uint64"
-      },
-      {
-        "internalType": "uint32",
-        "name": "gasLimit",
-        "type": "uint32"
-      },
-      {
-        "internalType": "bytes32",
-        "name": "donID",
-        "type": "bytes32"
-      }
+      { "internalType": "bytes", "name": "request", "type": "bytes" },
+      { "internalType": "uint64", "name": "subscriptionId", "type": "uint64" },
+      { "internalType": "uint32", "name": "gasLimit", "type": "uint32" },
+      { "internalType": "bytes32", "name": "donID", "type": "bytes32" }
     ],
     "name": "sendRequestCBOR",
     "outputs": [
-      {
-        "internalType": "bytes32",
-        "name": "requestId",
-        "type": "bytes32"
-      }
+      { "internalType": "bytes32", "name": "requestId", "type": "bytes32" }
     ],
     "stateMutability": "nonpayable",
     "type": "function"
   },
   {
-    "inputs": [
-      {
-        "internalType": "address",
-        "name": "to",
-        "type": "address"
-      }
-    ],
+    "inputs": [{ "internalType": "address", "name": "to", "type": "address" }],
     "name": "transferOwnership",
     "outputs": [],
     "stateMutability": "nonpayable",
@@ -379,89 +253,35 @@
   {
     "inputs": [],
     "name": "owner",
-    "outputs": [
-      {
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-      }
-    ],
+    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
     "stateMutability": "view",
     "type": "function"
   },
   {
-    "inputs": [
-      {
-        "internalType": "bytes32",
-        "name": "",
-        "type": "bytes32"
-      }
-    ],
+    "inputs": [{ "internalType": "bytes32", "name": "", "type": "bytes32" }],
     "name": "requestIdToSongId",
-    "outputs": [
-      {
-        "internalType": "string",
-        "name": "",
-        "type": "string"
-      }
-    ],
+    "outputs": [{ "internalType": "string", "name": "", "type": "string" }],
     "stateMutability": "view",
     "type": "function"
   },
   {
-    "inputs": [
-      {
-        "internalType": "bytes32",
-        "name": "",
-        "type": "bytes32"
-      }
-    ],
+    "inputs": [{ "internalType": "bytes32", "name": "", "type": "bytes32" }],
     "name": "responses",
-    "outputs": [
-      {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-      }
-    ],
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
     "stateMutability": "view",
     "type": "function"
   },
   {
-    "inputs": [
-      {
-        "internalType": "string",
-        "name": "",
-        "type": "string"
-      }
-    ],
+    "inputs": [{ "internalType": "string", "name": "", "type": "string" }],
     "name": "songIdTotalPaid",
-    "outputs": [
-      {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-      }
-    ],
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
     "stateMutability": "view",
     "type": "function"
   },
   {
-    "inputs": [
-      {
-        "internalType": "string",
-        "name": "",
-        "type": "string"
-      }
-    ],
+    "inputs": [{ "internalType": "string", "name": "", "type": "string" }],
     "name": "songToArtist",
-    "outputs": [
-      {
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-      }
-    ],
+    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
     "stateMutability": "view",
     "type": "function"
   },
@@ -469,50 +289,22 @@
     "inputs": [],
     "name": "streamToken",
     "outputs": [
-      {
-        "internalType": "contract StreamToken",
-        "name": "",
-        "type": "address"
-      }
+      { "internalType": "contract StreamToken", "name": "", "type": "address" }
     ],
     "stateMutability": "view",
     "type": "function"
   },
   {
-    "inputs": [
-      {
-        "internalType": "string",
-        "name": "",
-        "type": "string"
-      }
-    ],
+    "inputs": [{ "internalType": "string", "name": "", "type": "string" }],
     "name": "totalPlays",
-    "outputs": [
-      {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-      }
-    ],
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
     "stateMutability": "view",
     "type": "function"
   },
   {
-    "inputs": [
-      {
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-      }
-    ],
+    "inputs": [{ "internalType": "address", "name": "", "type": "address" }],
     "name": "whitelistedAddresses",
-    "outputs": [
-      {
-        "internalType": "bool",
-        "name": "",
-        "type": "bool"
-      }
-    ],
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
     "stateMutability": "view",
     "type": "function"
   }
